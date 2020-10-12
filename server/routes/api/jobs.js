@@ -1,9 +1,8 @@
 const express = require('express');
-const mongodb = require('mongodb');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    res.send('sdasd');
+    res.send('backend');
 });
 
 module.exports = router;

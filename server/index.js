@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/jobsdb', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/jobsdb', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(response => { console.log('MongoDB connected...') })
+    .catch(error => { console.log('MongoDB error...') })
 
 app.use(bodyParser.json());
 app.use(cors());
