@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  color: #2d322f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Architects Daughter', cursive;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.logo:hover {
+  color: #06de99;
+}
+
+.logo i {
+  font-size: 30px;
+  color: #06de99;
+  margin-right: 5px;
+}
+
+.nav-link {
+  color: #2d322f;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.nav-link:hover {
+  color: #06de99;
+}
+/*# sourceMappingURL=app.css.map */

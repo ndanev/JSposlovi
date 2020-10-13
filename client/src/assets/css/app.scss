@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+$primary-color: #06de99;
+$secondary-color: #2d322f;
+$white: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.logo {
+    color: $secondary-color;
+    display: flex;
+    align-items: center;
+    font-family: 'Architects Daughter', cursive;
+    transition: all .25s;
+
+    &:hover {
+        color: $primary-color;
+    }
+    i {
+        font-size: 30px;
+        color: $primary-color;
+        margin-right: 5px;
+       }
+}
+
+.nav-link {
+    color: $secondary-color;
+    transition: all .25s;
+
+    &:hover {
+        color: $primary-color;
+    }
+}
