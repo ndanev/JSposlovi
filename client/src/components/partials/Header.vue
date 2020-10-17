@@ -5,7 +5,7 @@
         <i class="fab fa-js"></i> poslovi
       </router-link>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler collapsed"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -13,7 +13,9 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -34,18 +36,17 @@
           <li class="nav-item dropdown" v-if="isLoggedIn">
             <a
               class="nav-link dropdown-toggle"
-              href="#"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-            >Dropdown</a>
+              v-if="user"
+            >{{user.username}}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <router-link to="/profile" class="nav-link">Profile</router-link>
               <div class="dropdown-divider"></div>
-              <!-- <router-link to="/logout" class="nav-link">Logout</router-link> -->
-              <a href="#" class="nav-link">
+              <a to="/logout" class="nav-link nav-link-logout" @click.prevent="logoutUser">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -57,12 +58,19 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Header",
   computed: {
-    ...mapGetters(["isLoggedIn"])
+    ...mapGetters(["isLoggedIn", "user"])
+  },
+  methods: {
+    ...mapActions(["logout"]),
+    logoutUser() {
+      this.logout();
+      this.$router.push("/login");
+    }
   }
 };
 </script>

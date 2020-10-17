@@ -41,6 +41,47 @@ $white: #ffffff;
         margin-right: 5px;
        }
 }
+ 
+.icon-bar {
+	width: 22px; 
+	height: 2px;
+	background-color: $text-color;
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px
+}
+ 
+.navbar-toggler {
+  outline: none !important;
+  border: none;
+  background: transparent !important;
+}
+ 
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+ 
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+ 
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+ 
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+ 
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+ 
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
 
 .nav-link {
     color: $text-color;
@@ -49,6 +90,10 @@ $white: #ffffff;
     &:hover {
         color: $primary-color;
     }
+}
+
+.nav-link-logout {
+    cursor: pointer;
 }
 
 .login {

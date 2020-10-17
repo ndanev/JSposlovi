@@ -13,8 +13,16 @@
                 class="hero-subtitle"
               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quibusdam corrupti eos facere illo ex repellat quisquam accusantium amet iste, repudiandae maiores veniam ad veritatis, cum delectus labore sapiente ut!</p>
               <div class="hero-buttons text-center mt-5">
-                <router-link class="button primary-button" to="/login">Login</router-link>
-                <router-link class="button secondary-button" to="/register">Sign up</router-link>
+                <router-link
+                  v-if="!isLoggedIn"
+                  class="button primary-button"
+                  to="/login"
+                >Prijavite se</router-link>
+                <router-link
+                  v-if="!isLoggedIn"
+                  class="button secondary-button"
+                  to="/register"
+                >Napravite svoj nalog</router-link>
               </div>
             </div>
           </div>
@@ -26,11 +34,15 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Hero from "@/components/Hero.vue";
 export default {
   name: "Home",
   components: {
     hero: Hero
+  },
+  computed: {
+    ...mapGetters(["isLoggedIn"])
   }
 };
 </script>

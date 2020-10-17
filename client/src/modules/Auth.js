@@ -1,9 +1,8 @@
 import axios from 'axios';
-// import router from '../routes';
 
 const state = {
     token: localStorage.getItem("token") || '',
-    users: {},
+    user: {},
     status: ''
 };
 
@@ -31,6 +30,26 @@ const actions = {
             commit('auth_success', token, user);
         }
         return response;
+    },
+    async register({ commit }, userData) {
+        commit('register_request');
+        let response = await axios.post('http://localhost:5000/api/users/register', userData);
+        if (response.data.success !== undefined) {
+            commit('register_success');
+        }
+        return response;
+    },
+    async getProfile({ commit }) {
+        commit('profile_request');
+        let response = await axios.get('http://localhost:5000/api/users/profile');
+        commit('user_profile', response.data.user)
+        return response;
+    },
+    logout({ commit }) {
+        localStorage.removeItem('token');
+        commit('logout');
+        delete axios.defaults.headers.common['Authorization'];
+        return;
     }
 };
 
@@ -42,6 +61,23 @@ const mutations = {
         state.token = token,
             state.user = user,
             state.status = 'success'
+    },
+    register_request(state) {
+        state.status = 'loading'
+    },
+    register_success(state) {
+        state.status = 'success'
+    },
+    logout(state) {
+        state.status = ''
+        state.token = ''
+        state.user = ''
+    },
+    profile_request(state) {
+        state.status = 'loading'
+    },
+    user_profile(state, user) {
+        state.user = user
     }
 };
 
