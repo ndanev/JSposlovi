@@ -10,8 +10,13 @@
 
 .header {
   background-color: #ffffff;
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.dropdown-menu {
+  left: unset;
+  right: 0;
+  min-width: 12rem;
 }
 
 .logo {
@@ -38,12 +43,116 @@
 }
 
 .nav-link {
-  color: #2d322f;
+  color: #5e6360;
   -webkit-transition: all .25s;
   transition: all .25s;
 }
 
 .nav-link:hover {
   color: #06de99;
+}
+
+.login {
+  background-color: #fafafa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card {
+  border: 1px solid #d8d8d8;
+}
+
+.card-header {
+  padding: 25px 15px;
+  background-color: #ffffff;
+  border: none;
+  text-align: center;
+}
+
+.card-header h1 {
+  font-size: 30px;
+}
+
+.card-footer {
+  padding: 0 0 15px 0;
+  background-color: #ffffff;
+  border: none;
+  text-align: center;
+}
+
+.card-link {
+  color: #2d322f;
+}
+
+.primary-button {
+  background-color: #06de99;
+  padding: 10px 25px;
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+}
+
+.hero-home {
+  width: 100%;
+  min-height: 700px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/hero-home.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/hero-home.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-title {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+}
+
+.button {
+  padding: 15px 50px;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 18px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  text-decoration: none !important;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+  margin: 10px;
+}
+
+.button:hover {
+  color: #ffffff;
+}
+
+.primary-button {
+  background-color: #06de99;
+}
+
+.secondary-button {
+  background-color: #536eec;
 }
 /*# sourceMappingURL=app.css.map */

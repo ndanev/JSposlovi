@@ -80,9 +80,10 @@ router.post('/login', (req, res) => {
                 }
 
                 /* Add a token to the user using jwt */
-                jwt.sign(payload, key, { expiresIn: "1h" }, (err, token) => {
+                jwt.sign(payload, key, { expiresIn: "604800" }, (err, token) => {
                     res.status(200).json({
                         success: true,
+                        user: user,
                         token: `Bearer ${token}`,
                         msg: "You are logged in."
                     })

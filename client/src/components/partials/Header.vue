@@ -26,10 +26,29 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link to="#" class="nav-link">Login</router-link>
+            <router-link to="/login" class="nav-link" v-if="!isLoggedIn">Login</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="#" class="nav-link">Register</router-link>
+            <router-link to="/register" class="nav-link" v-if="!isLoggedIn">Register</router-link>
+          </li>
+          <li class="nav-item dropdown" v-if="isLoggedIn">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link to="/profile" class="nav-link">Profile</router-link>
+              <div class="dropdown-divider"></div>
+              <!-- <router-link to="/logout" class="nav-link">Logout</router-link> -->
+              <a href="#" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -38,8 +57,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "Header"
+  name: "Header",
+  computed: {
+    ...mapGetters(["isLoggedIn"])
+  }
 };
 </script>
 
