@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="profile">
     <div class="container">
       <div class="row">
         <div class="offset-md-2"></div>

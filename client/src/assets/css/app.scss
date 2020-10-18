@@ -32,6 +32,12 @@ body {
     min-width: 12rem;
 }
 
+.avatar-image {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #536eec;
+}
+
 .logo {
     color: $secondary-color;
     display: flex;
@@ -108,13 +114,6 @@ body {
     cursor: pointer;
 }
 
-.login {
-    background-color: #fafafa;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .card {
     border: 1px solid #d8d8d8;
 }
@@ -152,7 +151,19 @@ body {
 .hero-home {
     width: 100%;
     min-height: 700px;
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(../images/hero-home.jpg);
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(../images/hero-home-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-about {
+    width: 100%;
+    min-height: 700px;
+    background: linear-gradient(rgba(45,50,47,.5), rgba(45,50,47,.5)), url(../images/hero-about.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -255,4 +266,8 @@ body {
 .job-card-desc {
     font-size: 16px;
     color: $text-color;
+}
+
+.login, .register, .profile {
+    margin-top: 114px;
 }

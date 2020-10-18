@@ -47,7 +47,12 @@
               aria-haspopup="true"
               aria-expanded="false"
               v-if="user"
-            >{{user.name}}</a>
+            >
+              <!-- <img class="avatar-image" src="../../assets/images/avatar.jpg" alt="avatar" /> -->
+              <!-- <i class="fas fa-user-tie avatar-image"></i> -->
+              <i class="fas fa-user-circle avatar-image"></i>
+              {{user.name}}
+            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <router-link to="/profile" class="nav-link">Profile</router-link>
               <div class="dropdown-divider"></div>

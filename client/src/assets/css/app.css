@@ -27,6 +27,12 @@ body {
   min-width: 12rem;
 }
 
+.avatar-image {
+  font-size: 20px;
+  margin-right: 5px;
+  color: #536eec;
+}
+
 .logo {
   color: #2d322f;
   display: -webkit-box;
@@ -117,20 +123,6 @@ body {
   cursor: pointer;
 }
 
-.login {
-  background-color: #fafafa;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .card {
   border: 1px solid #d8d8d8;
 }
@@ -168,8 +160,27 @@ body {
 .hero-home {
   width: 100%;
   min-height: 700px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/hero-home.jpg);
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/hero-home.jpg);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/hero-home-1.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/hero-home-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-about {
+  width: 100%;
+  min-height: 700px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(45, 50, 47, 0.5)), to(rgba(45, 50, 47, 0.5))), url(../images/hero-about.jpg);
+  background: linear-gradient(rgba(45, 50, 47, 0.5), rgba(45, 50, 47, 0.5)), url(../images/hero-about.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -285,5 +296,9 @@ body {
 .job-card-desc {
   font-size: 16px;
   color: #5e6360;
+}
+
+.login, .register, .profile {
+  margin-top: 114px;
 }
 /*# sourceMappingURL=app.css.map */
