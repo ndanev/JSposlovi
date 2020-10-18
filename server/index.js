@@ -18,8 +18,8 @@ app.use('/api/users', users);
 app.use('/api/jobs', jobs);
 
 mongoose.connect('mongodb://localhost:27017/jobsdb', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(response => { console.log('MongoDB connected...') })
-    .catch(error => { console.log('MongoDB error...') })
+    .then(response => { console.log('MongoDB has been connected...') })
+    .catch(error => { console.log('MongoDB error conncetion...') })
 
 const port = process.env.PORT || 5000;
 

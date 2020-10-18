@@ -13,9 +13,14 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
+        <div class="d-flex align-items-center">
+          <div class="mr-1">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </div>
+          <div class="navbar-toggler-menu">Menu</div>
+        </div>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -42,7 +47,7 @@
               aria-haspopup="true"
               aria-expanded="false"
               v-if="user"
-            >{{user.username}}</a>
+            >{{user.name}}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <router-link to="/profile" class="nav-link">Profile</router-link>
               <div class="dropdown-divider"></div>

@@ -9,6 +9,7 @@ import About from './components/views/About.vue';
 import Login from './components/views/Login.vue';
 import Register from './components/views/Register.vue';
 import Profile from './components/views/Profile.vue';
+// import Jobs from './components/views/Jobs.vue';
 
 const routes = [
     {

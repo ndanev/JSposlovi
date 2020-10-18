@@ -1,8 +1,29 @@
 const express = require('express');
 const router = express.Router();
+const Job = require('../../models/Job');
 
-router.get('/', async (req, res) => {
-    res.send('backend');
+router.post('/create-job', async (req, res) => {
+    try {
+        const job = await Job.create(req.body);
+        res.send(job);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            error: "An error has occured trying create a new job."
+        })
+    }
+});
+
+router.get('/get-jobs', async (req, res) => {
+    try {
+        const jobs = await Job.find();
+        res.send(jobs);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            error: "An error has occured trying to get a jobs."
+        })
+    }
 });
 
 module.exports = router;

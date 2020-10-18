@@ -8,9 +8,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background-color: #fafafa;
+}
+
 .header {
   background-color: #ffffff;
   border-bottom: 1px solid #d8d8d8;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .dropdown-menu {
@@ -45,7 +53,7 @@
 .icon-bar {
   width: 22px;
   height: 2px;
-  background-color: #5e6360;
+  background-color: #2d322f;
   display: block;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -56,6 +64,11 @@
   outline: none !important;
   border: none;
   background: transparent !important;
+}
+
+.navbar-toggler-menu {
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .navbar-toggler .top-bar {
@@ -206,5 +219,71 @@
 
 .secondary-button {
   background-color: #536eec;
+}
+
+.job-card {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d8d8d8;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.job-card:hover {
+  background-color: #eef0f1;
+}
+
+.job-card-image {
+  margin-right: 15px;
+}
+
+.job-card-image img {
+  width: 75px;
+  height: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.job-card-type {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 193, 7, 0.5);
+  font-size: 12px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+.job-card-title {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.job-card-title a {
+  color: #2d322f;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.job-card-title a:hover {
+  color: #2d322f;
+}
+
+.job-card-company {
+  font-size: 14px;
+}
+
+.job-card-company span {
+  font-weight: 700;
+}
+
+.job-card-desc {
+  font-size: 16px;
+  color: #5e6360;
 }
 /*# sourceMappingURL=app.css.map */
