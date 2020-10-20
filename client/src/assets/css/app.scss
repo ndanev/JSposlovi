@@ -120,6 +120,21 @@ label {
     }
 }
 
+.post-job {
+    color: #536eec;
+    border: 1px solid #536eec;
+    border-radius: 4px;
+    padding: 3px 5px;
+
+    i {
+        font-size: 14px;
+    }
+
+    &:hover {
+        color: #536eec;
+    }
+}
+
 .nav-link-logout {
     cursor: pointer;
 }
@@ -180,6 +195,25 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero-show-job {
+    background-color: $white;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    margin-top: 57px;
+
+    .hero-title {
+        color: $secondary-color;
+        text-transform: capitalize;
+        text-align: left;
+        font-size: 30px;
+
+        @media(max-width: 767px) {
+            font-size: 20px;
+        }
+    }
 }
 
 .hero-title {
@@ -287,4 +321,28 @@ label {
     background-color: $white;
     border: 1px solid #d8d8d8;
     border-radius: 4px;
+}
+
+.single-job-title {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+        object-position: center;
+        margin-right: 15px;
+    }
+}
+
+.single-job-link {
+    color: $primary-color;
+    font-size: 14px;
+    transition: all .25s;
+
+    &:hover {
+        text-decoration: none;
+        color: #536eec;
+    }
 }

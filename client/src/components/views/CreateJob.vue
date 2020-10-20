@@ -4,7 +4,8 @@
       <div class="row">
         <div class="offset-md-1"></div>
         <div class="col-md-10">
-          <h3 class="mb-5">Create job</h3>
+          <h3>Create job</h3>
+          <p>Use the form to get started. Questions? Contact us.</p>
         </div>
         <div class="offset-md-1"></div>
       </div>
@@ -18,13 +19,25 @@
                 <small
                   class="form-text"
                 >Concise and clear, name the role. Omit location or job type.</small>
-                <input v-model="job.jobTitle" type="text" class="form-control" id="job-title" />
+                <input
+                  v-model="job.jobTitle"
+                  type="text"
+                  class="form-control"
+                  id="job-title"
+                  :rules="[required]"
+                />
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="job-type">Job type</label>
-                    <select v-model="job.jobType" id="job-type" class="form-control">
+                    <select
+                      v-model="job.jobType"
+                      id="job-type"
+                      class="form-control"
+                      required
+                      :rules="[required]"
+                    >
                       <option selected></option>
                       <option value="full-time">Full time</option>
                       <option value="part-time">Part time</option>
@@ -38,7 +51,13 @@
                   <div class="form-group">
                     <label for="job-level">Level</label>
                     <small>/optional</small>
-                    <select v-model="job.level" id="job-level" class="form-control">
+                    <select
+                      v-model="job.level"
+                      id="job-level"
+                      class="form-control"
+                      required
+                      :rules="[required]"
+                    >
                       <option selected></option>
                       <option value="beginner">Beginner</option>
                       <option value="junior">Junior</option>
@@ -84,6 +103,8 @@
                   type="text"
                   class="form-control"
                   id="job-company-name"
+                  required
+                  :rules="[required]"
                 />
               </div>
               <div class="form-group">
@@ -103,6 +124,8 @@
                   class="form-control"
                   id="job-company-email"
                   placeholder="yourcompany@gmail.com"
+                  required
+                  :rules="[required]"
                 />
               </div>
               <div class="form-group">
@@ -114,6 +137,8 @@
                   class="form-control"
                   id="job-target"
                   placeholder="http://www.yoursitename.com/career"
+                  required
+                  :rules="[required]"
                 />
               </div>
               <div class="row">
@@ -160,7 +185,7 @@
                 <input v-model="job.location" type="text" class="form-control" id="job-location" />
               </div>
               <div class="form-group">
-                <input type="submit" class="primary-button" />
+                <input type="submit" class="primary-button" required :rules="[required]" />
               </div>
             </form>
           </div>
@@ -209,13 +234,21 @@ export default {
                       alignleft aligncenter alignright alignjustify | \
                       bullist numlist outdent indent | removeformat | help",
         past_data_images: true
-      }
+      },
+      required: value => !!value || "Requreid"
     };
   },
   methods: {
     async create() {
+      // const areAllFiledsFilledIn = Object.keys(this.job).every(
+      //   key => !!this.job[key]
+      // );
+      // if (!areAllFiledsFilledIn) {
+      //   this.error = "Please fill in required fields.";
+      // }
       try {
         await JobsService.createJob(this.job);
+        this.$router.push("/");
       } catch (err) {
         console.log(err);
       }

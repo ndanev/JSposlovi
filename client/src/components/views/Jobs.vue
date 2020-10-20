@@ -10,7 +10,7 @@
             </div>
             <div class="job-card-content">
               <div class="job-card-title">
-                <router-link to="/about">{{job.jobTitle}}</router-link>
+                <router-link :to="{ name: 'showJob', params: { jobId: job._id }}">{{job.jobTitle}}</router-link>
               </div>
               <div class="job-card-company">
                 <span>{{job.companyName}}</span>

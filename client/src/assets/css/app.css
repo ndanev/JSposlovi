@@ -129,6 +129,21 @@ label {
   color: #06de99;
 }
 
+.post-job {
+  color: #536eec;
+  border: 1px solid #536eec;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+
+.post-job i {
+  font-size: 14px;
+}
+
+.post-job:hover {
+  color: #536eec;
+}
+
 .nav-link-logout {
   cursor: pointer;
 }
@@ -203,6 +218,31 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.hero-show-job {
+  background-color: #ffffff;
+  min-height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 57px;
+}
+
+.hero-show-job .hero-title {
+  color: #2d322f;
+  text-transform: capitalize;
+  text-align: left;
+  font-size: 30px;
+}
+
+@media (max-width: 767px) {
+  .hero-show-job .hero-title {
+    font-size: 20px;
+  }
 }
 
 .hero-title {
@@ -317,5 +357,36 @@ label {
   background-color: #ffffff;
   border: 1px solid #d8d8d8;
   border-radius: 4px;
+}
+
+.single-job-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.single-job-title img {
+  width: 75px;
+  height: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin-right: 15px;
+}
+
+.single-job-link {
+  color: #06de99;
+  font-size: 14px;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.single-job-link:hover {
+  text-decoration: none;
+  color: #536eec;
 }
 /*# sourceMappingURL=app.css.map */

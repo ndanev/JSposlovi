@@ -10,6 +10,7 @@ import Login from '@/components/views/Login.vue';
 import Register from '@/components/views/Register.vue';
 import Profile from '@/components/views/Profile.vue';
 import CreateJob from '@/components/views/CreateJob.vue';
+import ShowJob from '@/components/views/ShowJob.vue';
 
 const routes = [
     {
@@ -48,10 +49,18 @@ const routes = [
     },
     {
         path: '/job/create',
-        name: 'CreateJob',
+        name: 'createJob',
         component: CreateJob,
         meta: {
             requiresAuth: true
+        }
+    },
+    {
+        path: '/job/:jobId',
+        name: 'showJob',
+        component: ShowJob,
+        meta: {
+            requiresAuth: false
         }
     },
     { path: '*', redirect: '/404' }
