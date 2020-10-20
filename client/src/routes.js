@@ -4,12 +4,12 @@ import store from "./store"
 
 Vue.use(VueRouter);
 
-import Home from './components/views/Home.vue';
-import About from './components/views/About.vue';
-import Login from './components/views/Login.vue';
-import Register from './components/views/Register.vue';
-import Profile from './components/views/Profile.vue';
-// import Jobs from './components/views/Jobs.vue';
+import Home from '@/components/views/Home.vue';
+import About from '@/components/views/About.vue';
+import Login from '@/components/views/Login.vue';
+import Register from '@/components/views/Register.vue';
+import Profile from '@/components/views/Profile.vue';
+import CreateJob from '@/components/views/CreateJob.vue';
 
 const routes = [
     {
@@ -42,6 +42,14 @@ const routes = [
         path: '/profile',
         name: 'profile',
         component: Profile,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/job/create',
+        name: 'CreateJob',
+        component: CreateJob,
         meta: {
             requiresAuth: true
         }

@@ -21,6 +21,16 @@ body {
   z-index: 1;
 }
 
+label {
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.form-text {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
 .dropdown-menu {
   left: unset;
   right: 0;
@@ -30,7 +40,7 @@ body {
 .avatar-image {
   font-size: 20px;
   margin-right: 5px;
-  color: #536eec;
+  color: #dad9d9;
 }
 
 .logo {
@@ -298,7 +308,14 @@ body {
   color: #5e6360;
 }
 
-.login, .register, .profile {
+.login, .register, .profile, .create-job {
   margin-top: 114px;
+}
+
+.create-job-panel {
+  padding: 25px;
+  background-color: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
 }
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,225 @@
+<template>
+  <div class="create-job mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-1"></div>
+        <div class="col-md-10">
+          <h3 class="mb-5">Create job</h3>
+        </div>
+        <div class="offset-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="offset-md-1"></div>
+        <div class="col-md-10">
+          <div class="create-job-panel">
+            <form @submit.prevent="create">
+              <div class="form-group">
+                <label for="job-title">Job title</label>
+                <small
+                  class="form-text"
+                >Concise and clear, name the role. Omit location or job type.</small>
+                <input v-model="job.jobTitle" type="text" class="form-control" id="job-title" />
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="job-type">Job type</label>
+                    <select v-model="job.jobType" id="job-type" class="form-control">
+                      <option selected></option>
+                      <option value="full-time">Full time</option>
+                      <option value="part-time">Part time</option>
+                      <option value="freelance">Freelance</option>
+                      <option value="internship">Internship</option>
+                      <option value="temporary">Temporary</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="job-level">Level</label>
+                    <small>/optional</small>
+                    <select v-model="job.level" id="job-level" class="form-control">
+                      <option selected></option>
+                      <option value="beginner">Beginner</option>
+                      <option value="junior">Junior</option>
+                      <option value="mid-level">Mid-level</option>
+                      <option value="senior">Senior</option>
+                      <option value="lead">Lead</option>
+                      <option value="manager">Manager</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="job-desc">Job description</label>
+                <small
+                  class="form-text"
+                >Describe the job as clear as possible. Select any text to apply styles.</small>
+                <editor
+                  id="job-desc"
+                  v-model="job.jobDesc"
+                  api-key="9ogvf8xacse94k9xz8i9v58ccmlq1rtcs8pbk75bcy24t804"
+                  :init="init"
+                />
+              </div>
+              <div class="form-group">
+                <label for="job-tags">Tags</label>
+                <small
+                  class="form-text"
+                >Include key technologies and any other tag information to help users find your job easier.</small>
+                <select v-model="job.skills" id="job-tags" class="form-control">
+                  <option selected></option>
+                  <option value="javacript">Javacript</option>
+                  <option value="react">React</option>
+                  <option value="vuejs">Vue</option>
+                  <option value="angular">Angular</option>
+                  <option value="nodejs">Nodejs</option>
+                  <option value="jquery">JQuery</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="job-company-name">Company name</label>
+                <input
+                  v-model="job.companyName"
+                  type="text"
+                  class="form-control"
+                  id="job-company-name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="job-company-image">Company image URL</label>
+                <input
+                  v-model="job.companyImageUrl"
+                  type="text"
+                  class="form-control"
+                  id="job-company-image"
+                />
+              </div>
+              <div class="form-group">
+                <label for="job-company-email">Company email</label>
+                <input
+                  v-model="job.emailAddress"
+                  type="text"
+                  class="form-control"
+                  id="job-company-email"
+                  placeholder="yourcompany@gmail.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="job-target">Application target</label>
+                <small class="form-text">Send applications to this email address or provide the URL.</small>
+                <input
+                  v-model="job.applicationTarget"
+                  type="text"
+                  class="form-control"
+                  id="job-target"
+                  placeholder="http://www.yoursitename.com/career"
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="job-currency">Currency</label>
+                    <small>/optional</small>
+                    <input
+                      v-model="job.currency"
+                      type="text"
+                      class="form-control"
+                      id="job-currency"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="job-min-sallary">Min sallary</label>
+                    <small>/optional</small>
+                    <input
+                      v-model="job.minSalary"
+                      type="text"
+                      class="form-control"
+                      id="job-min-sallary"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="job-max-sallary">Max sallary</label>
+                    <small>/optional</small>
+                    <input
+                      v-model="job.maxSalary"
+                      type="text"
+                      class="form-control"
+                      id="job-max-sallary"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="job-location">Location</label>
+                <small class="form-text">Job location.</small>
+                <input v-model="job.location" type="text" class="form-control" id="job-location" />
+              </div>
+              <div class="form-group">
+                <input type="submit" class="primary-button" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="offset-md-1"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Editor from "@tinymce/tinymce-vue";
+import JobsService from "@/services/JobsService";
+export default {
+  name: "CreateJob",
+  components: {
+    Editor
+  },
+  data() {
+    return {
+      job: {
+        jobTitle: null,
+        jobType: null,
+        level: null,
+        jobDesc: null,
+        applicationTarget: null,
+        emailAddress: null,
+        companyName: null,
+        companyImageUrl: null,
+        skills: null,
+        currency: null,
+        minSalary: null,
+        maxSalary: null,
+        location: null
+      },
+      init: {
+        height: 300,
+        menubar: true,
+        plugins: [
+          "advlist autolink lists link image charmap print preview anchor",
+          "searchreplace visualblocks code fullscreen",
+          "insertdatetime media table paste code help wordcount"
+        ],
+        toolbar:
+          "undo redo | formatselect | bold italic backcolor | \
+                      alignleft aligncenter alignright alignjustify | \
+                      bullist numlist outdent indent | removeformat | help",
+        past_data_images: true
+      }
+    };
+  },
+  methods: {
+    async create() {
+      try {
+        await JobsService.createJob(this.job);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+};
+</script>
