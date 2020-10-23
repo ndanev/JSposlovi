@@ -3,20 +3,19 @@
     <hero class="hero-show-job">
       <div class="container">
         <div class="row">
-          <div class="offset-md-1"></div>
-          <div class="col-md-10">
+          <div class="col-md-12">
             <div class="single-job-title">
               <img :src="job.companyImageUrl" alt />
               <div>
                 <h1 class="hero-title">{{job.jobTitle}}</h1>
-                <div>
-                  at
+                <div class="single-job-title-text">
+                  <span class="single-job-title-at">at</span>
                   <span>{{job.companyName}}</span> -
                   <a
                     v-if="job.applicationTarget !== null"
                     :href="job.applicationTarget"
                     target="_blank"
-                    class="single-job-link"
+                    class="single-job-link single-job-link-website"
                   >
                     <i class="fas fa-external-link-alt"></i>
                     {{job.applicationTarget}}
@@ -25,16 +24,50 @@
               </div>
             </div>
           </div>
-          <div class="offset-md-1"></div>
         </div>
       </div>
     </hero>
-    <div class="single-job">
+    <div class="single-job-info">
       <div class="container">
         <div class="row">
-          <div class="offset-md-1"></div>
-          <div class="col-md-10"></div>
-          <div class="offset-md-1"></div>
+          <div class="col-md-3 mb-3 mb-md-0">
+            <div class="single-job-info-title">Location</div>
+            <div class="single-job-info-value">{{job.location}}</div>
+          </div>
+          <div class="col-md-3 mb-3 mb-md-0">
+            <div class="single-job-info-title">Job Type</div>
+            <div class="single-job-info-value">{{job.jobType}}</div>
+          </div>
+          <div class="col-md-3 mb-3 mb-md-0">
+            <div class="single-job-info-title">Salary</div>
+            <div class="single-job-info-value">
+              <span class="mr-2">{{job.currency}}</span>
+              <span>{{job.minSalary}}</span>-
+              <span>{{job.maxSalary}}</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="single-job-info-title">Posted</div>
+            <div class="single-job-info-value">{{job.date | formatDate(job.date)}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="single-job-company">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <h1 class="section-title">Job description</h1>
+            <div class="single-job-company-text">{{job.jobDesc}}</div>
+            <div class="single-job-company-skills">
+              <div class="skill-tag">{{job.skills}}</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="single-job-apply">
+              <a :href="'mailto:' + job.emailAddress" class="apply-button">Apply Now!</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -57,7 +90,6 @@ export default {
   async mounted() {
     const jobId = this.$route.params.jobId;
     this.job = (await JobsService.showSingleJob(jobId)).data;
-    console.log(this.job);
   }
 };
 </script>

@@ -28,7 +28,7 @@ router.get('/single-job/:jobId', async (req, res) => {
 
 router.get('/get-jobs', async (req, res) => {
     try {
-        const jobs = await Job.find();
+        const jobs = await Job.find().sort({ date: -1 });
         res.send(jobs);
     } catch (err) {
         console.log(err);

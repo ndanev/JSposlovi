@@ -6,9 +6,10 @@
           <div class="offset-md-1"></div>
           <div class="col-md-10">
             <div class="hero-content">
-              <h1
-                class="hero-title"
-              >Lorem ipsum dolor sit amet, consectetur adipisicing elit quis dignissimos maiores.</h1>
+              <h1 class="hero-title">
+                Najtrazeniji
+                <span class="hero-innertitle">javascript</span> poslovi.
+              </h1>
               <p
                 class="hero-subtitle"
               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quibusdam corrupti eos facere illo ex repellat quisquam accusantium amet iste, repudiandae maiores veniam ad veritatis, cum delectus labore sapiente ut!</p>

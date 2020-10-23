@@ -66,7 +66,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Submit" class="primary-button w-100" />
+                  <input type="submit" value="Submit" class="secondary-button w-100" />
                 </div>
               </form>
             </div>

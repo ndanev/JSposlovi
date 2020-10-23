@@ -1,6 +1,9 @@
 <template>
-  <div class="create-job mb-5">
-    <div class="container">
+  <div class="create-job">
+    <hero class="hero-create-job">
+      <div class="container"></div>
+    </hero>
+    <div class="container mt-5">
       <div class="row">
         <div class="offset-md-1"></div>
         <div class="col-md-10">
@@ -96,50 +99,64 @@
                   <option value="jquery">JQuery</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label for="job-company-name">Company name</label>
-                <input
-                  v-model="job.companyName"
-                  type="text"
-                  class="form-control"
-                  id="job-company-name"
-                  required
-                  :rules="[required]"
-                />
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="job-company-name">Company name</label>
+                    <input
+                      v-model="job.companyName"
+                      type="text"
+                      class="form-control"
+                      id="job-company-name"
+                      required
+                      :rules="[required]"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="job-company-image">Company image URL</label>
+                    <input
+                      v-model="job.companyImageUrl"
+                      type="text"
+                      class="form-control"
+                      id="job-company-image"
+                    />
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="job-company-image">Company image URL</label>
-                <input
-                  v-model="job.companyImageUrl"
-                  type="text"
-                  class="form-control"
-                  id="job-company-image"
-                />
-              </div>
-              <div class="form-group">
-                <label for="job-company-email">Company email</label>
-                <input
-                  v-model="job.emailAddress"
-                  type="text"
-                  class="form-control"
-                  id="job-company-email"
-                  placeholder="yourcompany@gmail.com"
-                  required
-                  :rules="[required]"
-                />
-              </div>
-              <div class="form-group">
-                <label for="job-target">Application target</label>
-                <small class="form-text">Send applications to this email address or provide the URL.</small>
-                <input
-                  v-model="job.applicationTarget"
-                  type="text"
-                  class="form-control"
-                  id="job-target"
-                  placeholder="http://www.yoursitename.com/career"
-                  required
-                  :rules="[required]"
-                />
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="job-company-email">Company email</label>
+                    <input
+                      v-model="job.emailAddress"
+                      type="text"
+                      class="form-control"
+                      id="job-company-email"
+                      placeholder="yourcompany@gmail.com"
+                      required
+                      :rules="[required]"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="job-target">Application target</label>
+                    <small
+                      class="form-text"
+                    >Send applications to this email address or provide the URL.</small>
+                    <input
+                      v-model="job.applicationTarget"
+                      type="text"
+                      class="form-control"
+                      id="job-target"
+                      placeholder="http://www.yoursitename.com/career"
+                      required
+                      :rules="[required]"
+                    />
+                  </div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
@@ -185,7 +202,7 @@
                 <input v-model="job.location" type="text" class="form-control" id="job-location" />
               </div>
               <div class="form-group">
-                <input type="submit" class="primary-button" required :rules="[required]" />
+                <input type="submit" class="secondary-button" required :rules="[required]" />
               </div>
             </form>
           </div>
@@ -199,10 +216,12 @@
 <script>
 import Editor from "@tinymce/tinymce-vue";
 import JobsService from "@/services/JobsService";
+import Hero from "../Hero";
 export default {
   name: "CreateJob",
   components: {
-    Editor
+    Editor,
+    Hero
   },
   data() {
     return {
