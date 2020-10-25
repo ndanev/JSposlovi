@@ -38,8 +38,13 @@ export default {
       jobs: null
     };
   },
-  async mounted() {
-    this.jobs = (await JobsService.getAllJobs()).data;
+  watch: {
+    "$route.query.search": {
+      immediate: true,
+      async handler(value) {
+        this.jobs = (await JobsService.getAllJobs(value)).data;
+      }
+    }
   }
 };
 </script>

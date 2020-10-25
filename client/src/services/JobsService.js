@@ -1,8 +1,12 @@
 import Api from '@/services/Api';
 
 export default {
-    getAllJobs() {
-        return Api().get('/get-jobs');
+    getAllJobs(search) {
+        return Api().get('/get-jobs', {
+            params: {
+                search: search
+            }
+        });
     },
     showSingleJob(jobId) {
         return Api().get(`/single-job/${jobId}`);

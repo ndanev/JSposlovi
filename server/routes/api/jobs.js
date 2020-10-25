@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../../models/Job');
-const mongoose = require('mongoose');
 
 router.post('/create-job', async (req, res) => {
     try {
@@ -17,7 +16,20 @@ router.post('/create-job', async (req, res) => {
 
 router.get('/get-jobs', async (req, res) => {
     try {
-        const jobs = await Job.find().sort({ date: -1 });
+        let jobs = null
+        const search = req.query.search;
+        if (search) {
+            jobs = await Job.find({
+                $or: ['location', 'jobType', 'jobTitle', 'level', 'companyName'].map(key => ({
+                    [key]: {
+                        $regex: ".*" + search + ".*",
+                        $options: "-i"
+                    }
+                }))
+            }).sort({ date: -1 })
+        } else {
+            jobs = await Job.find().sort({ date: -1 });
+        }
         res.send(jobs);
     } catch (err) {
         console.log(err);

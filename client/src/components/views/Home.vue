@@ -31,19 +31,22 @@
         </div>
       </div>
     </hero>
-    <Jobs />
+    <search-job />
+    <jobs />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import Hero from "@/components/Hero.vue";
-import Jobs from "@/components/views/Jobs.vue";
+import Jobs from "@/components/Jobs.vue";
+import SearchJob from "@/components/SearchJob.vue";
 export default {
   name: "Home",
   components: {
     Hero,
-    Jobs
+    Jobs,
+    SearchJob
   },
   computed: {
     ...mapGetters(["isLoggedIn"])
