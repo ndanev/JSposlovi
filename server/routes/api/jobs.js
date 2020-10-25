@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../../models/Job');
+const mongoose = require('mongoose');
 
 router.post('/create-job', async (req, res) => {
     try {
@@ -9,19 +10,7 @@ router.post('/create-job', async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).send({
-            error: "An error has occured trying create a new job."
-        })
-    }
-});
-
-router.get('/single-job/:jobId', async (req, res) => {
-    try {
-        const job = await Job.findById(req.params.jobId);
-        res.send(job);
-    } catch (err) {
-        console.log(err);
-        res.status(500).send({
-            error: "An error has occured trying to get a job."
+            error: "An error has occured trying create the new job."
         })
     }
 });
@@ -33,7 +22,31 @@ router.get('/get-jobs', async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).send({
-            error: "An error has occured trying to get a jobs."
+            error: "An error has occured trying get the jobs."
+        })
+    }
+});
+
+router.get('/single-job/:jobId', async (req, res) => {
+    try {
+        const job = await Job.findById(req.params.jobId);
+        res.send(job);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            error: "An error has occured trying get the single job."
+        })
+    }
+});
+
+router.put('/edit-job/:jobId', async (req, res) => {
+    try {
+        await Job.findByIdAndUpdate(req.params.jobId, req.body, { useFindAndModify: false, new: true });
+        res.send(req.body);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            error: "An error has occured trying update the job."
         })
     }
 });

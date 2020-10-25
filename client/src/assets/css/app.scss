@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
-$primary-color: #06de99;
+
+$primary-color: #32d6a1;
 $secondary-color: #2d322f;
 $blue-color:#536eec;
+$red-color: #f75679;
 $text-color: #5e6360;
 $white: #ffffff;
+.bg-yellow {
+    background-color: rgba(255,193,7,.5);
+}
+.bg-red {
+    background-color: $red-color;
+    color: $white;
+}
+.bg-blue {
+    background-color: $blue-color;
+    color: $white;
+}
 
 * {
     margin: 0;
@@ -35,6 +48,10 @@ label {
     font-weight: 500;
 }
 
+.form-control::placeholder {
+    font-size: 14px;
+}
+
 .form-text {
     margin-top: 0;
     margin-bottom: 5px;
@@ -44,6 +61,12 @@ label {
     left: unset;
     right: 0;
     min-width: 12rem;
+
+    .nav-link {
+        @media(max-width: 767px) {
+            padding: 0 10px;
+        }
+    }
 }
 
 .avatar-image {
@@ -135,8 +158,9 @@ label {
     color: $white;
     background-color: $blue-color;
     border-radius: 4px;
-    padding: 5px;
+    padding: 5px 10px;
     box-shadow: 0 2px 4px 0 rgba(45,50,47, .2);
+    transition: all .25s;
 
     i {
         font-size: 14px;
@@ -145,6 +169,7 @@ label {
     &:hover {
         transform: translateY(-2px);
         color:  $white;
+        text-decoration: none;
     }
 }
 
@@ -189,6 +214,8 @@ label {
 
     &:hover {
         transform: translateY(-2px);
+        text-decoration: none;
+        color: $white;
     }
 }
 
@@ -203,6 +230,8 @@ label {
 
     &:hover {
         transform: translateY(-2px);
+        text-decoration: none;
+        color: $white;
     }
 }
 
@@ -210,6 +239,7 @@ label {
     width: 100%;
     min-height: 700px;
     background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(../images/hero-home-1.jpg);
+    background-color: #fafafa;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -235,6 +265,15 @@ label {
     min-height: calc(57px + 200px);
 }
 
+.hero-buttons {
+    a.button {
+        @media(max-width: 767px) {
+            display: block;
+            padding: 15px 25px;
+        }
+    }
+}
+
 .hero-show-job {
     background-color: $white;
     min-height: 200px;
@@ -254,6 +293,7 @@ label {
 
         @media(max-width: 767px) {
             font-size: 20px;
+            margin-bottom: 0;
         }
     }
 }
@@ -335,10 +375,10 @@ label {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgba(255,193,7,.5);
     font-size: 12px;
     padding: 3px 10px;
     font-weight: 700;
+    border-bottom-left-radius: 2px;
 }
 
 .job-card-title {
@@ -363,8 +403,13 @@ label {
 }
 
 .job-card-desc {
-    font-size: 16px;
+    font-size: 14px;
     color: $text-color;
+    h1,h2,h3,h4,h5,h6,p,a {
+        font-size: 14px;
+        margin-bottom: 0;
+        font-weight: 400;
+    }
 }
 
 .login, .register, .profile {
@@ -425,6 +470,10 @@ label {
         text-decoration: none;
         color: #536eec;
     }
+
+    @media(max-width: 767px) {
+        display: block;
+    }
 }
 
 .single-job-info {
@@ -450,6 +499,15 @@ label {
 
 .single-job-company-text {
     color: $text-color;
+
+    h1,h2,h3,h4,h5,h6 {
+        color: $secondary-color;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 
     @media(max-width: 767px) {
         font-size: 14px;

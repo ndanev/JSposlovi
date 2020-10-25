@@ -40,7 +40,7 @@
               <router-link to="/register" class="nav-link" v-if="!isLoggedIn">Register</router-link>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <router-link to="/job/create" class="nav-link post-job" v-if="isLoggedIn">
+              <router-link to="/job/create" class="post-job" v-if="isLoggedIn">
                 <i class="fas fa-plus-circle"></i> Add Job
               </router-link>
             </li>

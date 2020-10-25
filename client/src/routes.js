@@ -11,6 +11,7 @@ import Register from '@/components/views/Register.vue';
 import Profile from '@/components/views/Profile.vue';
 import CreateJob from '@/components/views/CreateJob.vue';
 import ShowJob from '@/components/views/ShowJob.vue';
+import EditJob from '@/components/views/EditJob.vue';
 
 const routes = [
     {
@@ -61,6 +62,14 @@ const routes = [
         component: ShowJob,
         meta: {
             requiresAuth: false
+        }
+    },
+    {
+        path: '/job/:jobId/edit',
+        name: 'editJob',
+        component: EditJob,
+        meta: {
+            requiresAuth: true
         }
     },
     { path: '*', redirect: '/404' }

@@ -16,9 +16,11 @@
                 <span>{{job.companyName}}</span>
                 - {{job.location}}
               </div>
-              <div class="job-card-desc">{{job.jobDesc.substring(0,50)}}</div>
+              <div class="job-card-desc" v-html="job.jobDesc.substring(0,100)"></div>
             </div>
-            <div class="job-card-type">{{job.jobType}}</div>
+            <div
+              :class="['job-card-type',job.jobType === 'full-time' ? 'bg-yellow' : 'bg-red']"
+            >{{job.jobType}}</div>
           </div>
         </div>
         <div class="offset-md-1"></div>

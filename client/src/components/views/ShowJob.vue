@@ -3,7 +3,7 @@
     <hero class="hero-show-job">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 d-flex align-items-center justify-content-between">
             <div class="single-job-title">
               <img :src="job.companyImageUrl" alt />
               <div>
@@ -22,6 +22,14 @@
                   </a>
                 </div>
               </div>
+            </div>
+            <div class="single-job-edit">
+              <router-link
+                :to="{ name: 'editJob', params: { jobId: job._id }}"
+                class="primary-button d-block"
+              >
+                <i class="far fa-edit"></i> Edit Job
+              </router-link>
             </div>
           </div>
         </div>
@@ -42,7 +50,7 @@
             <div class="single-job-info-title">Salary</div>
             <div class="single-job-info-value">
               <span class="mr-2">{{job.currency}}</span>
-              <span>{{job.minSalary}}</span>-
+              <span>{{job.minSalary}}</span> -
               <span>{{job.maxSalary}}</span>
             </div>
           </div>
@@ -56,9 +64,9 @@
     <div class="single-job-company">
       <div class="container">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-9 mb-5">
             <h1 class="section-title">Job description</h1>
-            <div class="single-job-company-text">{{job.jobDesc}}</div>
+            <div class="single-job-company-text" v-html="job.jobDesc"></div>
             <div class="single-job-company-skills">
               <div class="skill-tag">{{job.skills}}</div>
             </div>

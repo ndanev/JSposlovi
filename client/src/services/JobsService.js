@@ -9,5 +9,8 @@ export default {
     },
     createJob(job) {
         return Api().post('/create-job', job);
+    },
+    updateSingleJob(job) {
+        return Api().put(`/edit-job/${job._id}`, job);
     }
 }
