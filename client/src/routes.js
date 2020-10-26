@@ -72,7 +72,7 @@ const routes = [
             requiresAuth: true
         }
     },
-    { path: '*', redirect: '/404' }
+    { path: '*', redirect: '/' }
 ]
 
 export const router = new VueRouter({

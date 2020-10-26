@@ -58,7 +58,8 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      error: ""
     };
   },
   methods: {
@@ -75,7 +76,9 @@ export default {
             this.$router.push("/profile");
           }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };
