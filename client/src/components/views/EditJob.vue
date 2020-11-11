@@ -77,15 +77,7 @@
                 <small
                   class="form-text"
                 >Include key technologies and any other tag information to help users find your job easier.</small>
-                <select v-model="job.skills" id="job-tags" class="form-control">
-                  <option selected></option>
-                  <option value="javacript">Javacript</option>
-                  <option value="react">React</option>
-                  <option value="vuejs">Vue</option>
-                  <option value="angular">Angular</option>
-                  <option value="nodejs">Nodejs</option>
-                  <option value="jquery">JQuery</option>
-                </select>
+                <input-tag v-model="job.skills" class="form-control" id="job-tags" required></input-tag>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -202,6 +194,7 @@
 </template>
 
 <script>
+import InputTag from "vue-input-tag";
 import Editor from "@tinymce/tinymce-vue";
 import JobsService from "@/services/JobsService";
 import Hero from "../Hero";
@@ -209,7 +202,8 @@ export default {
   name: "CreateJob",
   components: {
     Editor,
-    Hero
+    Hero,
+    InputTag
   },
   data() {
     return {
@@ -222,7 +216,7 @@ export default {
         emailAddress: null,
         companyName: null,
         companyImageUrl: null,
-        skills: null,
+        skills: [],
         currency: null,
         minSalary: null,
         maxSalary: null,

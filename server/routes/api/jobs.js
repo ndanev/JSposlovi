@@ -20,7 +20,7 @@ router.get('/get-jobs', async (req, res) => {
         const search = req.query.search;
         if (search) {
             jobs = await Job.find({
-                $or: ['location', 'jobType', 'jobTitle', 'level', 'companyName'].map(key => ({
+                $or: ['location', 'jobType', 'jobTitle', 'level', 'companyName', 'skills'].map(key => ({
                     [key]: {
                         $regex: ".*" + search + ".*",
                         $options: "-i"

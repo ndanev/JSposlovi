@@ -10,9 +10,11 @@
                 Najtrazeniji
                 <span class="hero-innertitle">javascript</span> poslovi.
               </h1>
-              <p
-                class="hero-subtitle"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quibusdam corrupti eos facere illo ex repellat quisquam accusantium amet iste, repudiandae maiores veniam ad veritatis, cum delectus labore sapiente ut!</p>
+              <p class="hero-subtitle">
+                <i class="fas fa-info-circle"></i>
+                Preko
+                <span>{{jobsCount.length - 1}}</span>+ poslova
+              </p>
               <div class="hero-buttons text-center mt-5">
                 <router-link
                   v-if="!isLoggedIn"
@@ -41,6 +43,7 @@ import { mapGetters } from "vuex";
 import Hero from "@/components/Hero.vue";
 import Jobs from "@/components/Jobs.vue";
 import SearchJob from "@/components/SearchJob.vue";
+import JobsService from "@/services/JobsService";
 export default {
   name: "Home",
   components: {
@@ -48,8 +51,16 @@ export default {
     Jobs,
     SearchJob
   },
+  data() {
+    return {
+      jobsCount: ""
+    };
+  },
   computed: {
     ...mapGetters(["isLoggedIn"])
+  },
+  async created() {
+    this.jobsCount = (await JobsService.getAllJobs()).data;
   }
 };
 </script>

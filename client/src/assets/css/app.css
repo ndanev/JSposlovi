@@ -74,7 +74,7 @@ label {
   min-width: 12rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .dropdown-menu .nav-link {
     padding: 0 10px;
   }
@@ -309,7 +309,11 @@ label {
 
 .hero-create-job {
   background-color: #536eec;
-  min-height: calc(57px + 200px);
+  height: calc(57px + 200px);
+}
+
+.hero-create-job .hero-title {
+  margin-top: 57px;
 }
 
 @media (max-width: 767px) {
@@ -359,7 +363,7 @@ label {
 
 @media (max-width: 767px) {
   .hero-title {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
@@ -416,6 +420,10 @@ label {
   border-radius: 4px;
   -webkit-transition: all .25s;
   transition: all .25s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
 }
 
 .job-card:hover {
@@ -433,6 +441,13 @@ label {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+@media (max-width: 767px) {
+  .job-card-image img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .job-card-type {
@@ -466,6 +481,21 @@ label {
 
 .job-card-company span {
   font-weight: 700;
+}
+
+.job-card-technologies {
+  margin: 5px 0;
+}
+
+.job-card-technologies-item {
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #eaeaea;
+  color: #2d322f;
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 20px;
+  margin-right: 5px;
 }
 
 .job-card-desc {
@@ -595,14 +625,6 @@ label {
 
 .single-job-company-skills {
   margin-top: 50px;
-}
-
-.skill-tag {
-  display: inline-block;
-  padding: 12.5px 25px;
-  background-color: #536eec;
-  color: #ffffff;
-  border-radius: 25px;
 }
 
 .single-job-apply {

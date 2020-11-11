@@ -4,7 +4,7 @@
       <div class="row">
         <div class="offset-md-1"></div>
         <div class="col-md-10">
-          <div class="job-card d-flex mb-3" v-for="job in jobs" :key="job._id">
+          <div class="job-card" v-for="job in jobs" :key="job._id">
             <div class="job-card-image">
               <img :src="job.companyImageUrl" alt />
             </div>
@@ -16,11 +16,16 @@
                 <span>{{job.companyName}}</span>
                 - {{job.location}}
               </div>
+              <div class="job-card-technologies">
+                <span
+                  v-for="(skill, index) in job.skills"
+                  :key="index"
+                  class="job-card-technologies-item"
+                >{{skill}}</span>
+              </div>
               <div class="job-card-desc" v-html="job.jobDesc.substring(0,100)"></div>
             </div>
-            <div
-              :class="['job-card-type',job.jobType === 'full-time' ? 'bg-yellow' : 'bg-red']"
-            >{{job.jobType}}</div>
+            <div class="job-card-type bg-yellow">{{job.jobType}}</div>
           </div>
         </div>
         <div class="offset-md-1"></div>

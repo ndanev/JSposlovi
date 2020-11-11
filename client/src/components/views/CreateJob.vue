@@ -1,7 +1,16 @@
 <template>
   <div class="create-job">
     <hero class="hero-create-job">
-      <div class="container"></div>
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-md-12 d-flex align-items-center justify-content-center">
+            <h1 class="hero-title">
+              Najtrazeniji
+              <span class="hero-innertitle">javascript</span> poslovi.
+            </h1>
+          </div>
+        </div>
+      </div>
     </hero>
     <div class="container mt-5">
       <div class="row">
@@ -28,6 +37,7 @@
                   class="form-control"
                   id="job-title"
                   :rules="[required]"
+                  autocomplete="off"
                 />
               </div>
               <div class="row">
@@ -85,19 +95,11 @@
                 />
               </div>
               <div class="form-group">
-                <label for="job-tags">Tags</label>
+                <label for="job-tags">Technologies</label>
                 <small
                   class="form-text"
                 >Include key technologies and any other tag information to help users find your job easier.</small>
-                <select v-model="job.skills" id="job-tags" class="form-control">
-                  <option selected></option>
-                  <option value="javacript">Javacript</option>
-                  <option value="react">React</option>
-                  <option value="vuejs">Vue</option>
-                  <option value="angular">Angular</option>
-                  <option value="nodejs">Nodejs</option>
-                  <option value="jquery">JQuery</option>
-                </select>
+                <input-tag v-model="job.skills" class="form-control" id="job-tags" required></input-tag>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -110,6 +112,7 @@
                       id="job-company-name"
                       required
                       :rules="[required]"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -121,6 +124,7 @@
                       type="text"
                       class="form-control"
                       id="job-company-image"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -140,6 +144,7 @@
                       placeholder="yourcompany@gmail.com"
                       required
                       :rules="[required]"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -157,6 +162,7 @@
                       placeholder="http://www.yoursitename.com/career"
                       required
                       :rules="[required]"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -171,6 +177,7 @@
                       type="text"
                       class="form-control"
                       id="job-currency"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -180,9 +187,10 @@
                     <small>/optional</small>
                     <input
                       v-model="job.minSalary"
-                      type="text"
+                      type="number"
                       class="form-control"
                       id="job-min-sallary"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -192,9 +200,10 @@
                     <small>/optional</small>
                     <input
                       v-model="job.maxSalary"
-                      type="text"
+                      type="number"
                       class="form-control"
                       id="job-max-sallary"
+                      autocomplete="off"
                     />
                   </div>
                 </div>
@@ -202,7 +211,13 @@
               <div class="form-group">
                 <label for="job-location">Location</label>
                 <small class="form-text">Job location.</small>
-                <input v-model="job.location" type="text" class="form-control" id="job-location" />
+                <input
+                  v-model="job.location"
+                  type="text"
+                  class="form-control"
+                  id="job-location"
+                  autocomplete="off"
+                />
               </div>
               <div class="form-group">
                 <input type="submit" class="secondary-button" required :rules="[required]" />
@@ -217,6 +232,7 @@
 </template>
 
 <script>
+import InputTag from "vue-input-tag";
 import Editor from "@tinymce/tinymce-vue";
 import JobsService from "@/services/JobsService";
 import Hero from "../Hero";
@@ -224,7 +240,8 @@ export default {
   name: "CreateJob",
   components: {
     Editor,
-    Hero
+    Hero,
+    InputTag
   },
   data() {
     return {
@@ -237,7 +254,7 @@ export default {
         emailAddress: null,
         companyName: null,
         companyImageUrl: null,
-        skills: null,
+        skills: [],
         currency: null,
         minSalary: null,
         maxSalary: null,
@@ -263,12 +280,6 @@ export default {
   },
   methods: {
     async create() {
-      // const areAllFiledsFilledIn = Object.keys(this.job).every(
-      //   key => !!this.job[key]
-      // );
-      // if (!areAllFiledsFilledIn) {
-      //   this.error = "Please fill in required fields.";
-      // }
       try {
         await JobsService.createJob(this.job);
         this.$router.push("/");

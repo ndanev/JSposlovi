@@ -23,6 +23,7 @@
                     class="form-control"
                     placeholder="Name"
                     id="name"
+                    autocomplete="off"
                   />
                 </div>
                 <div class="form-group">
@@ -33,6 +34,7 @@
                     class="form-control"
                     placeholder="Username"
                     id="username"
+                    autocomplete="off"
                   />
                 </div>
                 <div class="form-group">
@@ -43,6 +45,7 @@
                     class="form-control"
                     placeholder="Email"
                     id="email"
+                    autocomplete="off"
                   />
                 </div>
                 <div class="form-group">
@@ -53,6 +56,7 @@
                     class="form-control"
                     placeholder="Password"
                     id="password"
+                    autocomplete="off"
                   />
                 </div>
                 <div class="form-group">
@@ -63,6 +67,7 @@
                     class="form-control"
                     placeholder="Confirm Password"
                     id="confirm_password"
+                    autocomplete="off"
                   />
                 </div>
                 <div class="form-group">

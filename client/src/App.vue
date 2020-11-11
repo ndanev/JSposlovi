@@ -1,9 +1,7 @@
 <template>
   <div>
     <Header />
-    <transition name="fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
@@ -21,15 +19,4 @@ export default {
 </script>
 
 <style>
-.fade-enter-active {
-  transition: all 0.3s ease;
-}
-.fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.fade-enter,
-.fade-leave-to {
-  transform: translateX(50px);
-  opacity: 0;
-}
 </style>

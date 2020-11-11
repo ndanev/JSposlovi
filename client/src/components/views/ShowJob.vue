@@ -68,7 +68,13 @@
             <h1 class="section-title">Job description</h1>
             <div class="single-job-company-text" v-html="job.jobDesc"></div>
             <div class="single-job-company-skills">
-              <div class="skill-tag">{{job.skills}}</div>
+              <div class="job-card-technologies">
+                <span
+                  v-for="(skill, index) in job.skills"
+                  :key="index"
+                  class="job-card-technologies-item"
+                >{{skill}}</span>
+              </div>
             </div>
           </div>
           <div class="col-md-3">
