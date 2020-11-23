@@ -6,7 +6,7 @@ $primary-color: #32d6a1;
 $secondary-color: #2d322f;
 $blue-color:#536eec;
 $red-color: #f75679;
-$text-color: #5e6360;
+$text-color: #101010;
 $white: #ffffff;
 .bg-yellow {
     background-color: rgba(255,193,7,.5);
@@ -107,6 +107,7 @@ label {
 }
  
 .navbar-toggler {
+  padding: 0;
   outline: none !important;
   border: none;
   background: transparent !important;
@@ -256,7 +257,7 @@ label {
 
 .hero-about {
     width: 100%;
-    min-height: 700px;
+    min-height: 500px;
     background: linear-gradient(rgba(45,50,47,.5), rgba(45,50,47,.5)), url(../images/hero-about.jpg);
     background-position: center;
     background-size: cover;
@@ -570,5 +571,30 @@ label {
             text-decoration: none;
             transform: translateY(-2px);
         }
+    }
+}
+
+.footer {
+    padding: 25px 0;
+    background-color: $white;
+    border-top: 1px solid #d8d8d8; 
+}
+
+.footer-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-item {
+    margin-bottom: 15px;
+}
+
+.footer-link {
+    color: $secondary-color;
+
+    &:hover {
+        text-decoration: none;
+        color: $blue-color;
     }
 }

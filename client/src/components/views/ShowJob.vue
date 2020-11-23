@@ -28,7 +28,8 @@
                 :to="{ name: 'editJob', params: { jobId: job._id }}"
                 class="primary-button d-block"
               >
-                <i class="far fa-edit"></i> Edit Job
+                <i class="far fa-edit"></i>
+                <span class="d-none d-md-inline">Edit Job</span>
               </router-link>
             </div>
           </div>

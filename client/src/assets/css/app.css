@@ -120,6 +120,7 @@ label {
 }
 
 .navbar-toggler {
+  padding: 0;
   outline: none !important;
   border: none;
   background: transparent !important;
@@ -163,11 +164,11 @@ label {
 }
 
 .dropdown-toggle:hover {
-  color: #5e6360 !important;
+  color: #101010 !important;
 }
 
 .nav-link {
-  color: #5e6360;
+  color: #101010;
   -webkit-transition: all .25s;
   transition: all .25s;
 }
@@ -290,7 +291,7 @@ label {
 
 .hero-about {
   width: 100%;
-  min-height: 700px;
+  min-height: 500px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(45, 50, 47, 0.5)), to(rgba(45, 50, 47, 0.5))), url(../images/hero-about.jpg);
   background: linear-gradient(rgba(45, 50, 47, 0.5), rgba(45, 50, 47, 0.5)), url(../images/hero-about.jpg);
   background-position: center;
@@ -500,7 +501,7 @@ label {
 
 .job-card-desc {
   font-size: 14px;
-  color: #5e6360;
+  color: #101010;
 }
 
 .job-card-desc h1, .job-card-desc h2, .job-card-desc h3, .job-card-desc h4, .job-card-desc h5, .job-card-desc h6, .job-card-desc p, .job-card-desc a {
@@ -560,7 +561,7 @@ label {
 }
 
 .single-job-title-at {
-  color: #5e6360;
+  color: #101010;
   margin-right: 10px;
 }
 
@@ -592,7 +593,7 @@ label {
 }
 
 .single-job-info-value {
-  color: #5e6360;
+  color: #101010;
 }
 
 .single-job-company {
@@ -605,7 +606,7 @@ label {
 }
 
 .single-job-company-text {
-  color: #5e6360;
+  color: #101010;
 }
 
 .single-job-company-text h1, .single-job-company-text h2, .single-job-company-text h3, .single-job-company-text h4, .single-job-company-text h5, .single-job-company-text h6 {
@@ -657,5 +658,30 @@ label {
   text-decoration: none;
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
+}
+
+.footer {
+  padding: 25px 0;
+  background-color: #ffffff;
+  border-top: 1px solid #d8d8d8;
+}
+
+.footer-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-item {
+  margin-bottom: 15px;
+}
+
+.footer-link {
+  color: #2d322f;
+}
+
+.footer-link:hover {
+  text-decoration: none;
+  color: #536eec;
 }
 /*# sourceMappingURL=app.css.map */
