@@ -34,6 +34,13 @@ body {
     height: 100%;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 .header {
     background-color: $white;
     border-bottom: 1px solid #d8d8d8;
@@ -258,7 +265,7 @@ label {
 .hero-about {
     width: 100%;
     min-height: 500px;
-    background: linear-gradient(rgba(45,50,47,.5), rgba(45,50,47,.5)), url(../images/hero-about.jpg);
+    background: linear-gradient(rgba(45,50,47,.5), rgba(45,50,47,.5)), url(../images/hero-bubbles.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -280,7 +287,7 @@ label {
     a.button {
         @media(max-width: 767px) {
             display: block;
-            padding: 15px 25px;
+            padding: 12px 25px;
         }
     }
 }
@@ -432,7 +439,7 @@ label {
     padding: 5px 10px;
     display: inline-block;
     border-radius: 20px;
-    margin-right: 5px;
+    margin: 0 5px 5px 0;
 }
 
 .job-card-desc {

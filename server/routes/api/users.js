@@ -100,7 +100,7 @@ router.post('/login', (req, res) => {
 });
 
 /* @route /api/users/profile */
-router.get('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/profile', passport.authenticate('jwt', { session: false }), async (req, res) => {
     return res.json({
         user: req.user
     });
