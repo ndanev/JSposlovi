@@ -49,7 +49,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 label {
@@ -335,6 +335,7 @@ label {
   .hero-buttons a.button {
     display: block;
     padding: 12px 25px;
+    font-size: 16px;
   }
 }
 
@@ -374,6 +375,7 @@ label {
   color: #ffffff;
   text-align: center;
   font-weight: 600;
+  font-size: 3.5rem;
 }
 
 @media (max-width: 767px) {
@@ -438,7 +440,7 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 15px;
+  height: 100%;
 }
 
 .job-card:hover {
@@ -511,6 +513,12 @@ label {
   display: inline-block;
   border-radius: 20px;
   margin: 0 5px 5px 0;
+}
+
+@media (max-width: 767px) {
+  .job-card-technologies-item {
+    font-size: 12px;
+  }
 }
 
 .job-card-desc {

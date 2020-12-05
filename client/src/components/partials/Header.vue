@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="container">
+    <div class="container-fluid">
       <nav class="navbar navbar-expand-lg">
         <router-link class="navbar-brand logo" to="/">
           <i class="fab fa-js"></i> poslovi
@@ -27,35 +27,25 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link to="/" class="nav-link" @click.prevent="closeMenu">Jobs</router-link>
+              <router-link to="/" class="nav-link">Jobs</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/about" class="nav-link" @click.prevent="closeMenu">About</router-link>
+              <router-link to="/about" class="nav-link">About</router-link>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <router-link
-                to="/login"
-                class="nav-link"
-                v-if="!isLoggedIn"
-                @click="closeMenu()"
-              >Login</router-link>
+              <router-link to="/login" class="nav-link" v-if="!isLoggedIn">Login</router-link>
             </li>
             <li class="nav-item">
-              <router-link
-                to="/register"
-                class="nav-link"
-                v-if="!isLoggedIn"
-                @click="closeMenu()"
-              >Register</router-link>
+              <router-link to="/register" class="nav-link" v-if="!isLoggedIn">Register</router-link>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <router-link to="/job/create" class="post-job" v-if="isLoggedIn" @click="closeMenu()">
+              <router-link to="/job/create" class="post-job" v-if="isLoggedIn">
                 <i class="fas fa-plus-circle"></i> Add Job
               </router-link>
             </li>
-            <li class="nav-item dropdown" v-if="isLoggedIn" @click="closeMenu()">
+            <li class="nav-item dropdown" v-if="isLoggedIn">
               <a
                 class="nav-link dropdown-toggle d-flex align-items-center"
                 id="navbarDropdown"
@@ -68,14 +58,9 @@
                 Profile
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <router-link to="/profile" class="nav-link" @click="closeMenu()">Your Account</router-link>
+                <router-link to="/profile" class="nav-link">Your Account</router-link>
                 <div class="dropdown-divider"></div>
-                <a
-                  to="/logout"
-                  class="nav-link nav-link-logout"
-                  @click.prevent="logoutUser"
-                  @click="closeMenu()"
-                >
+                <a to="/logout" class="nav-link nav-link-logout" @click.prevent="logoutUser">
                   <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
               </div>
@@ -100,9 +85,6 @@ export default {
     logoutUser() {
       this.logout();
       this.$router.push("/login");
-    },
-    closeMenu() {
-      document.getElementById("navbarNav").classList.remove("show");
     }
   }
 };

@@ -1,10 +1,9 @@
 <template>
   <div class="mt-5">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="offset-md-1"></div>
-        <div class="col-md-10">
-          <div class="job-card" v-for="job in jobs" :key="job._id">
+        <div class="col-md-6 col-lg-4 col-xl-3 mb-3" v-for="job in jobs" :key="job._id">
+          <div class="job-card">
             <div class="job-card-image">
               <img :src="job.companyImageUrl" alt />
             </div>
@@ -28,7 +27,6 @@
             <div class="job-card-type bg-yellow">{{job.jobType}}</div>
           </div>
         </div>
-        <div class="offset-md-1"></div>
       </div>
     </div>
   </div>

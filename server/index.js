@@ -23,4 +23,4 @@ mongoose.connect('mongodb://localhost:27017/jobsdb', { useNewUrlParser: true, us
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Serve sterted on port ${port}`));
+app.listen(port, () => console.log(`Server started on port ${port}`));
